@@ -1,0 +1,4 @@
+FUNC g COND :
+START
+CALL PRINT "f ass"
+END
