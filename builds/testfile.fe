@@ -1,0 +1,3 @@
+f g(x) {
+    print("f ass")
+}
