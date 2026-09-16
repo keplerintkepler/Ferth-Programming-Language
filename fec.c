@@ -49,7 +49,7 @@ int main(int argc, char** args) {
 
     //Sleep(5000);
 
-    current_file = NULL;
+    
     result_file = NULL;
 
     return 0;

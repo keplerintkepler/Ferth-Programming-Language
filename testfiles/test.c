@@ -1,18 +1,18 @@
-
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
+#include <windows.h>
 
-int main(int argc, char** args)
-{
-    char* arg1 = args[1];
-    char* arg2 = args[2];
-    printf(arg1);
-    printf(arg2);
-    char* gg = malloc(sizeof(arg1) + sizeof(arg2) + 1);
-    gg = strcpy(arg1,arg2);
-    printf(gg);
-
-    free(gg);
+int main() {
+    /*char* line1 = "fe compiler error.\n";
+    char* line2 = "\033[1;96mfile : \"C:\\Users\\user1\\Downloads\\app.fe\" in (row:5, col:54) inside scope \"global\":\033[m\n\n";
+    char* line3 = "\033[1;31mintr\033[m x = 2\n\033[1;31m^^^^\033[m\n\n";
+    char* line4 = "\033[1;96undefined object reference -> identifier \"intr\" is undefined.\n did you mean \"int\"?\n\033[m";
+    
+    printf(line1);
+    printf(line2);
+    printf(line3);
+    printf(line4);*/
+    printf("fe compiler error.\n \033[1;96m file : \"C:\\Users\\user1\\Downloads\\app.fe\" in (row:5, col:54) inside scope \"global\": \033[m \n\n \033[1;31m intr \033[m x = 2\n \033[1;31m ^^^^ \033[m \n\n \033[1;96m undefined object reference -> identifier \"intr\" is undefined. did you mean \"int\"?\n \033[m ");
+    Sleep(5000);
     return 0;
 }
