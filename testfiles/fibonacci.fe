@@ -1,0 +1,12 @@
+lastn1 = 1
+lastn2 = 0
+fib_seq = L[]
+
+for _ in 10:
+    loc seq = lastn1 + lastn2
+    lastn2 = lastn1
+    lastn1 = seq
+    fib_seq.append(lastn1)
+end
+
+print("fibonacci sequence is: " + fib_seq)

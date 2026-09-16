@@ -3,6 +3,9 @@
 #endif
 
 //  error values
+// memory
+#define MEMORY_ALLOC_ERROR 0x0F0
+
 // path
 #define NULL_PATH_ERROR 0x1F0
 #define FILE_PATH_ERROR 0x1F1
@@ -10,9 +13,17 @@
 #define NULL_FILE_ERROR 0x2F1
 #define OPEN_FILE_ERROR 0x2F2
 #define CREATE_FILE_ERROR 0x2F3
+// arguments
+#define NULL_ARGUMENT_ERROR 0x6F0
+#define INVALID_ARGUMENT_ERROR 0x6F1
+#define CAST_CONVERSION_ERROR 0x6F2
 
-// success values
-#define FILE_OPEN_SUCCESS 0x200
-#define FILE_CREATION_SUCCESS 0x201
-#define FILE_WRITE_SUCCESS 0x202
-#define FILE_CONTENT_FETCH_SUCCESS 0x203
+//  success values
+// files
+#define FILE_OPEN_SUCCESS 0x100
+#define FILE_CREATION_SUCCESS 0x101
+#define FILE_WRITE_SUCCESS 0x102
+#define FILE_CONTENT_FETCH_SUCCESS 0x103
+#define FILE_CLOSE_SUCCESS 0x104
+// conversion
+#define CAST_CONVERSION_SUCCESS 0x200

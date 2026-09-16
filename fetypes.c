@@ -3,13 +3,10 @@
 #define FE_AUTO(x) fe_automatic_handler(x)
 #endif
 
-#define NULL_ARGUMENT_ERROR 0x6F0
-#define INVALID_ARGUMENT_ERROR 0x6F1
-#define CAST_CONVERSION_ERROR 0x6F2
-
 #include <stdio.h>
 #include <stdint.h>
 #include <float.h>
+#include "feerror.h"
 
 //Types Def
 
@@ -22,12 +19,26 @@ struct fe_number {
     double num_ref;
 };
 
+struct fe_file {
+    FILE* fileobj;
+    const char* filepath;
+};
+
 
 //Type util Def
+//
 
-int toint(void* value, int* return_int) {
-    
+// int conversions
+
+int inttofloat(int value, float** return_val) {
+    float* converted = (float*)*return_val;
+    if (!converted) {
+        return CAST_CONVERSION_ERROR;
+    }
+    *return_val = converted;
+    return CAST_CONVERSION_SUCCESS;
 }
+
 
 void* fe_automatic_handler() {
 

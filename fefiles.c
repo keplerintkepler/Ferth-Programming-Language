@@ -3,19 +3,13 @@
 #include <string.h>
 #include "feerror.h"
 #include "fefiles.h"
+#include "feutils.h"
 
-
-//only for joining strs
-char* concat(const char* str1, const char* str2) {
-    char* isconcat = malloc(strlen(str1) + strlen(str2) + 1);
-    if (isconcat == NULL) isconcat = NULL;
-    strcpy(isconcat,str1);
-    strcat(isconcat,str2);
-    return isconcat;
-}
 
 //Expanded to OPEN_FILE macro
-//Opens A File By Giving Its FilePath And File Argument
+/*
+Opens A File By Giving Its FilePath And File Argument
+*/
 int open_file(const char* file_path, FILE** file) {
     if (!file_path) {
         return NULL_PATH_ERROR;
@@ -28,7 +22,9 @@ int open_file(const char* file_path, FILE** file) {
 }
 
 //Expanded to FILE_TEXT macro
-//Fetch All Text From A File That Supports UTF-8 .fe and .fb
+/*
+Fetch All Text From A File That Supports UTF-8 .fe and .fb
+*/
 int get_file_text(FILE* file,const char** content) {
     if (!file) {
         return NULL_FILE_ERROR;
@@ -40,7 +36,7 @@ int get_file_text(FILE* file,const char** content) {
     char buffer[256];
 
     while (fgets(buffer,sizeof(buffer),file) != NULL) {
-        char* concatres = concat(total_content,buffer);
+        char* concatres = C_CONCAT(total_content,buffer);
         
         free(total_content);
         total_content = concatres;
@@ -53,7 +49,9 @@ int get_file_text(FILE* file,const char** content) {
 }
 
 //Expanded to CREATE_FILE macro
-//Creates A File That Supports UTF-8 .fe and .fb
+/*
+Creates A File That Supports UTF-8 .fe and .fb
+*/
 int create_file(const char* file_path, FILE** file_result) {
     *file_result = fopen(file_path,"w");
     if (!*file_result) {
@@ -63,7 +61,9 @@ int create_file(const char* file_path, FILE** file_result) {
 }
 
 //Expanded to WRITE_TEXT_FILE macro
-//Writes A File Giving Contents To Write
+/*
+Writes A File Giving Contents To Write
+*/
 int write_file_text( const char* content, FILE** file_result) {
     if (!*file_result) {
         return NULL_FILE_ERROR;
@@ -71,4 +71,12 @@ int write_file_text( const char* content, FILE** file_result) {
     fputs(content,*file_result);
 
     return FILE_WRITE_SUCCESS;
+}
+
+int close_file(FILE* file) {
+    if (!file) {
+        return NULL_FILE_ERROR;
+    }
+    fclose(file);
+    return FILE_CLOSE_SUCCESS;
 }
