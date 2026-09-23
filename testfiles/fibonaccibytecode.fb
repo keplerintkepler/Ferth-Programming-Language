@@ -1,0 +1,35 @@
+//Ferth programming langugage 2026, Kplr
+
+SCOPE MAIN:
+    PREPARESCOP
+    CLOSESCOP
+    GETFUP 'print'
+    MOVE "fibonacci sequence is: "
+    MOVESEQ
+        GETFUP 'fibonacci'
+        MOVE 20
+        CALL
+    ENDMV
+    CALL
+    FEND
+
+
+SCOPE fibonacci(quant):
+    PREPARESCOP
+    SETUP 'lastn1',1
+    SETUP 'lastn2',0
+    SETUP 'fib_seq', L[]
+    LOOPINIT quant
+    GETUP lastn1
+    GETUP lastn2
+    ADD 2,r(1)
+    SETUP 'seq',r(1)
+    MOVE 'lastn2', 'lastn1' 
+    MOVE 'lastn1', 'seq'
+    GETFUP 'fib_seq' 'append'
+    MOVE 'seq'
+    TESTLOOP
+    LOOPEND
+    RETURN 'fib_seq'
+    FEND
+
