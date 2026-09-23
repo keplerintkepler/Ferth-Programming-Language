@@ -1,0 +1,9 @@
+//Ferth programming langugage 2026, Kplr
+
+SCOPE MAIN:
+    PREPARESCOP 0
+    CLOSESCOP
+    SETFUP 'print'
+    MOVE 'Hello World!'
+    CALL 1
+    FEND

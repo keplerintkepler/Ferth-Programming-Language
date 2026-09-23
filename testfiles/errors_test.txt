@@ -1,0 +1,26 @@
+#Undefined Object
+
+intr x = 2;
+
+error below:
+
+fe compiler error.
+file : "%filepath%" in (row:5, col:54) in scope "global":
+
+undefined object reference -> identifier "intr" is undefined.
+
+did you mean "int"?
+
+
+f g(x
+
+end
+
+error below:
+
+fe compiler error.
+file : "%filepath%" in (row:5, col:54) in scope "g":
+Syntax Error -> "(" was never closed
+
+%no suggestion%
+
